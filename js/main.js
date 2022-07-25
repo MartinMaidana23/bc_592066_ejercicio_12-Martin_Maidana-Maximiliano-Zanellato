@@ -6,13 +6,6 @@ console.log(principal = document.querySelector("h1").textContent)
 
 const contenedor = document.querySelector("div")
 
-/* const integrantes = {
-    primernombre: ['Martín', 'Maximiliano'],
-    segundonombre: ['', ''],
-    primerapellido: ['Maidana', 'Zanellato'],
-    segundoapellido: ['', '']
-} */
-
 const integrantes = [
     {nombre: "Matias", segundonombre: "Maximiliano", apellido: "Maidana", segundoapellido:"" },
     {nombre: "Maximiliano", segundonombre: "", apellido: "Zanellato", segundoapellido: "Maidana"}
@@ -118,7 +111,7 @@ if (duplicados != "") {
     console.log(`Hubo coincidencias`)
     console.log(duplicados)
     colorElegido = "red"
- /*    colorElegido = prompt("Ingrese un color para destacar los nombre: ") */
+    colorElegido = prompt("Ingrese un color para destacar los nombre: ")
 } else {
     console.log(`No hubo coincidencias`)
 }
@@ -133,21 +126,5 @@ for (i = 0; i<duplicados.length;i++) {
     }
     console.log(tomarElementos)
 }
-const {coin1,coin2,coin3} = [duplicados]
-console.log(coin1)
-
-/* document.getElementById("body").style.backgroundColor = "red"; */
-/* const colores = document.getElementsByClassName(duplicados)
-console.log(colores) */
 
 
-/* const index = integrantes.find((element) => element.nombre === 'Maidana' );
-console.log(index) */
-
-
-/* const cambiocolor = document.querySelectorAll(duplicados[0])
-
-console.log(cambiocolor) */
-/* 
-console.log(Object.values(integrantes[1]))
-Object.values(integrantes[0]).find("Maidana") */
