@@ -1,119 +1,6 @@
-<<<<<<< HEAD
-console.log('Bootcamp 592066 - Martin Maidana - Maximiliano Zanellato');
-console.log(document.querySelector('title').textContent);
-
-let nombres = document.querySelectorAll('.nombre')
-let segundoNombre = document.querySelectorAll('.segundoNombre')
-let apellidos=document.querySelectorAll('.apellido')
-let segundoApellido=document.querySelectorAll('.segundoApellido')
-
-let [nombre1, nombre2] = nombres
-nombre1=nombre1.textContent
-nombre2=nombre2.textContent
-let [segundoNombre1, segundoNombre2 ]=segundoNombre
-segundoNombre1=segundoNombre1.textContent
-segundoNombre2=segundoNombre2.textContent
-let [apellido1, apellido2]=apellidos
-apellido1=apellido1.textContent
-apellido2=apellido2.textContent
-let [segundoApellido1, segundoApellido2]=segundoApellido
-segundoApellido1=segundoApellido1.textContent
-segundoApellido2=segundoApellido2.textContent
-
-if (segundoNombre1==='') {
-    segundoNombre1=' '
-} else {
-    segundoNombre1=' '+segundoNombre1 +' '
-}
-
-if (segundoApellido1==='') {
-    segundoApellido1=' '
-} else {
-    segundoApellido1=' '+segundoApellido1
-}
-
-if (segundoNombre2==='') {
-    segundoNombre2=' '
-} else {
-    segundoNombre2=' '+segundoNombre2 +' '
-}
-
-if (segundoApellido2==='') {
-    segundoApellido2=' '
-} else {
-    segundoApellido2=' '+segundoApellido2
-}
-
-let integrante1 = [nombre1 + segundoNombre1 + apellido1.toUpperCase() + segundoApellido1.toUpperCase()]
-
-let integrante2 = [nombre2 + segundoNombre2 + apellido2.toUpperCase() + segundoApellido2.toUpperCase()]
-
-console.log(
-`-----
-Integrante 1: "${integrante1}"
-Integrante 2: "${integrante2}"
------
-`);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-=======
                                     /* PARTE 1 */
+console.log('Bootcamp 592066 - Martin Maidana - Maximiliano Zanellato')
 console.log(titulo = document.querySelector("title").textContent)
-console.log(principal = document.querySelector("h1").textContent)
 
                                     /* PARTE 2 */
 
@@ -127,8 +14,8 @@ const contenedor = document.querySelector("div")
 } */
 
 const integrantes = [
-    {nombre: "Matias", segundonombre: "Maximiliano", apellido: "Maidana", segundoapellido:"" },
-    {nombre: "Maximiliano", segundonombre: "", apellido: "Zanellato", segundoapellido: "Maidana"}
+    {nombre: "Martin", segundonombre: "", apellido: "Maidana", segundoapellido:"" },
+    {nombre: "Maximiliano", segundonombre: "", apellido: "Zanellato", segundoapellido: ""}
     ]
 
                                     /* Integrante 1 */
@@ -200,11 +87,11 @@ console.log(`Integrante 1: ${primerintegrante}\nIntegrante 2: ${segundointegrant
 
 const [array1,array2] = integrantes
 
-console.log(array1)
+//console.log(array1)
 
 let {nombre1,nombre2,apellido1,apellido2} = {array1}
 
-console.log(nombre1)
+//console.log(nombre1)
 
                         // COMPARACION DE NOMBRES Y APELLIDOS //
 
@@ -215,7 +102,7 @@ for (const {nombre: n, segundonombre: sn, apellido: a, segundoapellido: sa} of i
 
 const listaOrdenada = datos.sort()
 let duplicados = []
-console.log(datos.sort())
+//console.log(datos.sort())
   
 for (let i = 0; i < listaOrdenada.length; i++) {
     if (listaOrdenada[i + 1] === listaOrdenada[i]) {
@@ -230,8 +117,8 @@ for (let i = 0; i < listaOrdenada.length; i++) {
 if (duplicados != "") {
     console.log(`Hubo coincidencias`)
     console.log(duplicados)
-    colorElegido = "red"
- /*    colorElegido = prompt("Ingrese un color para destacar los nombre: ") */
+    //colorElegido = "red"
+    colorElegido = prompt("Ingrese un color para destacar los nombre: ") 
 } else {
     console.log(`No hubo coincidencias`)
 }
@@ -242,12 +129,12 @@ if (duplicados != "") {
 for (i = 0; i<duplicados.length;i++) {
     const tomarElementos = document.getElementsByClassName(`${duplicados[i]}`);
     for (x = 0; x<tomarElementos.length;x++) {
-        tomarElementos[x].style.backgroundColor = `${colorElegido}`
+        tomarElementos[x].style.color = `${colorElegido}`
     }
     console.log(tomarElementos)
 }
 const {coin1,coin2,coin3} = [duplicados]
-console.log(coin1)
+//console.log(coin1)
 
 /* document.getElementById("body").style.backgroundColor = "red"; */
 /* const colores = document.getElementsByClassName(duplicados)
@@ -264,4 +151,3 @@ console.log(cambiocolor) */
 /* 
 console.log(Object.values(integrantes[1]))
 Object.values(integrantes[0]).find("Maidana") */
->>>>>>> max
