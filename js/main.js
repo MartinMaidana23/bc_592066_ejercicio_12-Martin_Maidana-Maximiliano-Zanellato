@@ -23,6 +23,7 @@ function capturarI1() {
     agregar1()
     stringI1()
     mostrarNombres()
+    comparacion()
 }
 
 function capturarI2() {
@@ -42,6 +43,7 @@ function capturarI2() {
     agregar2()
     stringI2()
     mostrarNombres()
+    comparacion()
     console.log(integrante2);
 }
 
@@ -69,6 +71,7 @@ function stringI2() {
     segundoIntegrante=integrantes[1].nombre2+" "+integrantes[1].segundoNombre2+" "+integrantes[1].apellido2+" "+integrantes[1].segundoApellido2
 }
 
+
 function mostrarNombres() {
     console.log
     (`
@@ -81,6 +84,37 @@ function mostrarNombres() {
 
 btn1.addEventListener('click', capturarI1)
 btn2.addEventListener('click', capturarI2)
+
+
+
+function comparacion() {
+    datos = []
+    for (const {nombre: n, segundoNombre: sn, apellido: a, segundoApellido: sa} of integrantes) {
+        datos.push(n,sn,a,sa)
+    }
+    listaOrdenada = datos.sort()
+    duplicados = []
+
+  
+    for (let i = 0; i < listaOrdenada.length; i++) {
+        if (listaOrdenada[i + 1] === listaOrdenada[i]) {
+            if (listaOrdenada[i] != "") {
+            duplicados.push(listaOrdenada[i])
+            } 
+        }
+    }
+    if (duplicados != "") {
+        console.log(`Hubo coincidencias`)
+        console.log(duplicados)
+    } else {
+        console.log(`No hubo coincidencias`)
+    }
+    
+}
+
+
+
+
 
 
 
