@@ -1,6 +1,6 @@
                                     /* PARTE 1 */
+console.log('Bootcamp 592066 - Martin Maidana - Maximiliano Zanellato')
 console.log(titulo = document.querySelector("title").textContent)
-console.log(principal = document.querySelector("h1").textContent)
 
                                     /* PARTE 2 */
 let nombre = ''
@@ -8,19 +8,65 @@ let segundoNombre=''
 let apellido=''
 let segundoApellido=''
 
-function btnCompletarI1() {
-    //document.querySelector('btn').preventDefault()
-    nombre = document.querySelector('#nombre').textContent
-    segundoNombre = document.querySelector('#segundoNombre').textContent
-    apellido = document.querySelector('#apellido').textContent
-    segundoApellido = document.querySelector('#segundoApellido').textContent
-    console.log(nombre);
+const contenedor = document.querySelector("div")
+
+/* const integrantes = {
+    primernombre: ['Martín', 'Maximiliano'],
+    segundonombre: ['', ''],
+    primerapellido: ['Maidana', 'Zanellato'],
+    segundoapellido: ['', '']
+} */
+
+const integrantes = [
+    {nombre: "Martin", segundonombre: "", apellido: "Maidana", segundoapellido:"" },
+    {nombre: "Maximiliano", segundonombre: "", apellido: "Zanellato", segundoapellido: ""}
+    ]
+
+                                    /* Integrante 1 */
+                                    
+function crearDT_DD_lista1(dato1,dato2) {
+    const dt = document.createElement("dt")
+    dt.textContent = dato1
+    lista_1.appendChild(dt)
+    const dd = document.createElement("dd")    
+    dd.className = dato2
+    dd.textContent = dato2
+    dt.appendChild(dd)
 }
 
 let btn1 = document.querySelector('#integrante1')
 
 btn1.addEventListener('click', btnCompletarI1)
 
+const h2_1 = document.createElement("h2")
+h2_1.className = "integrante1"
+
+h2_1.textContent = "Primer Integrante"
+contenedor.appendChild(h2_1)
+
+const lista_1 = document.createElement("dl")
+contenedor.appendChild(lista_1)
+
+crearDT_DD_lista1("Primer Nombre",integrantes[0].nombre)
+crearDT_DD_lista1("Segundo Nombre",integrantes[0].segundonombre)
+crearDT_DD_lista1("Primer Apellido",integrantes[0].apellido)
+crearDT_DD_lista1("Segundo Apellido",integrantes[0].segundoapellido)
+
+
+
+const h2_2 = document.createElement("h2")
+h2_2.className = "integrante2"
+
+h2_2.textContent = "Segundo Integrante"
+contenedor.appendChild(h2_2)
+
+const lista_2 = document.createElement("dl")
+contenedor.appendChild(lista_2)
+
+crearDT_DD_lista2("Primer Nombre",integrantes[1].nombre)
+crearDT_DD_lista2("Segundo Nombre",integrantes[1].segundonombre)
+crearDT_DD_lista2("Primer Apellido",integrantes[1].apellido)
+crearDT_DD_lista2("Segundo Apellido",integrantes[1].segundoapellido)
 
 
                                     /* Parte 3 */
@@ -68,7 +114,8 @@ for (let i = 0; i < listaOrdenada.length; i++) {
 if (duplicados != "") {
     console.log(`Hubo coincidencias`)
     console.log(duplicados)
-    colorElegido = prompt("Ingrese un color para destacar los nombres que coinciden: ")
+    //colorElegido = "red"
+    colorElegido = prompt("Ingrese un color para destacar los nombre: ") 
 } else {
     console.log(`No hubo coincidencias`)
 }
