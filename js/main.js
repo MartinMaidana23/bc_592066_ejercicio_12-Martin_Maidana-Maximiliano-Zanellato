@@ -3,148 +3,86 @@ console.log('Bootcamp 592066 - Martin Maidana - Maximiliano Zanellato')
 console.log(titulo = document.querySelector("title").textContent)
 
                                     /* PARTE 2 */
-let nombre = ''
-let segundoNombre=''
-let apellido=''
-let segundoApellido=''
 
-const contenedor = document.querySelector("div")
+let btn1 = document.querySelector('#btn1')
+let btn2 = document.querySelector('#btn2')
 
-/* const integrantes = {
-    primernombre: ['Martín', 'Maximiliano'],
-    segundonombre: ['', ''],
-    primerapellido: ['Maidana', 'Zanellato'],
-    segundoapellido: ['', '']
-} */
-
-const integrantes = [
-    {nombre: "Martin", segundonombre: "", apellido: "Maidana", segundoapellido:"" },
-    {nombre: "Maximiliano", segundonombre: "", apellido: "Zanellato", segundoapellido: ""}
-    ]
-
-                                    /* Integrante 1 */
-                                    
-function crearDT_DD_lista1(dato1,dato2) {
-    const dt = document.createElement("dt")
-    dt.textContent = dato1
-    lista_1.appendChild(dt)
-    const dd = document.createElement("dd")    
-    dd.className = dato2
-    dd.textContent = dato2
-    dt.appendChild(dd)
-}
-
-let btn1 = document.querySelector('#integrante1')
-
-btn1.addEventListener('click', btnCompletarI1)
-
-const h2_1 = document.createElement("h2")
-h2_1.className = "integrante1"
-
-h2_1.textContent = "Primer Integrante"
-contenedor.appendChild(h2_1)
-
-const lista_1 = document.createElement("dl")
-contenedor.appendChild(lista_1)
-
-crearDT_DD_lista1("Primer Nombre",integrantes[0].nombre)
-crearDT_DD_lista1("Segundo Nombre",integrantes[0].segundonombre)
-crearDT_DD_lista1("Primer Apellido",integrantes[0].apellido)
-crearDT_DD_lista1("Segundo Apellido",integrantes[0].segundoapellido)
-
-
-
-const h2_2 = document.createElement("h2")
-h2_2.className = "integrante2"
-
-h2_2.textContent = "Segundo Integrante"
-contenedor.appendChild(h2_2)
-
-const lista_2 = document.createElement("dl")
-contenedor.appendChild(lista_2)
-
-crearDT_DD_lista2("Primer Nombre",integrantes[1].nombre)
-crearDT_DD_lista2("Segundo Nombre",integrantes[1].segundonombre)
-crearDT_DD_lista2("Primer Apellido",integrantes[1].apellido)
-crearDT_DD_lista2("Segundo Apellido",integrantes[1].segundoapellido)
-
-
-                                    /* Parte 3 */
-                   
-                                    
-let primerintegrante = integrantes[0].nombre+" "+integrantes[0].segundonombre+" "+integrantes[0].apellido+" "+integrantes[0].segundoapellido
-let segundointegrante = integrantes[1].nombre+" "+integrantes[1].segundonombre+" "+integrantes[1].apellido+" "+integrantes[1].segundoapellido
-
-console.log(`Integrante 1: ${primerintegrante}\nIntegrante 2: ${segundointegrante}`)
-
-
-
-
-
-
-const [array1,array2] = integrantes
-
-//console.log(array1)
-
-let {nombre1,nombre2,apellido1,apellido2} = {array1}
-
-//console.log(nombre1)
-
-                        // COMPARACION DE NOMBRES Y APELLIDOS //
-
-let datos = []
-for (const {nombre: n, segundonombre: sn, apellido: a, segundoapellido: sa} of integrantes) {
-    datos.push(n,sn,a,sa)
-}
-
-const listaOrdenada = datos.sort()
-let duplicados = []
-//console.log(datos.sort())
-  
-for (let i = 0; i < listaOrdenada.length; i++) {
-    if (listaOrdenada[i + 1] === listaOrdenada[i]) {
-        if (listaOrdenada[i] != "") {
-        duplicados.push(listaOrdenada[i])
-        } 
+function capturarI1() {
+    function Integrante1(nombre, segundoNombre, apellido, segundoApellido) {
+        this.nombre=nombre
+        this.segundoNombre=segundoNombre
+        this.apellido=apellido
+        this.segundoApellido=segundoApellido
     }
+    nombre = document.querySelector('#nombre').value
+    segundoNombre = document.querySelector('#segundoNombre').value
+    apellido = document.querySelector('#apellido').value
+    segundoApellido = document.querySelector('#segundoApellido').value
+    integrante1 = new Integrante1(nombre, segundoNombre, apellido, segundoApellido)
+    console.log(integrante1);
+    agregar1()
+    stringI1()
+    mostrarNombres()
 }
 
-                        // COINCIDENCIAS //
-
-if (duplicados != "") {
-    console.log(`Hubo coincidencias`)
-    console.log(duplicados)
-    //colorElegido = "red"
-    colorElegido = prompt("Ingrese un color para destacar los nombre: ") 
-} else {
-    console.log(`No hubo coincidencias`)
-}
-
-
-                        // CAMBIO DE COLOR A LOS DUPLICADOS //
-
-for (i = 0; i<duplicados.length;i++) {
-    const tomarElementos = document.getElementsByClassName(`${duplicados[i]}`);
-    for (x = 0; x<tomarElementos.length;x++) {
-        tomarElementos[x].style.color = `${colorElegido}`
+function capturarI2() {
+    function Integrante2(nombre2, segundoNombre2, apellido2, segundoApellido2) {
+        this.nombre2=nombre2
+        this.segundoNombre2=segundoNombre2
+        this.apellido2=apellido2
+        this.segundoApellido2=segundoApellido2
     }
-    //console.log(tomarElementos)
+
+    nombre2 = document.querySelector('#nombre2').value
+    segundoNombre2 = document.querySelector('#segundoNombre2').value
+    apellido2 = document.querySelector('#apellido2').value
+    segundoApellido2 = document.querySelector('#segundoApellido2').value
+
+    integrante2 = new Integrante2(nombre2, segundoNombre2, apellido2, segundoApellido2)
+    agregar2()
+    stringI2()
+    mostrarNombres()
+    console.log(integrante2);
 }
-const {coin1,coin2,coin3} = [duplicados]
-//console.log(coin1)
 
-/* document.getElementById("body").style.backgroundColor = "red"; */
-/* const colores = document.getElementsByClassName(duplicados)
-console.log(colores) */
+let integrantes = []
+
+function agregar1() {
+    integrantes.push(integrante1)
+}
+
+function agregar2() {
+    integrantes.push(integrante2)
+}
+
+if (segundoNombre!=='') {
+    segundoNombre= ''+segundoNombre+''
+}else{
+    segundoNombre= ' '
+}
+
+function stringI1() {
+    primerIntegrante=integrantes[0].nombre+" "+integrantes[0].segundoNombre+" "+integrantes[0].apellido+" "+integrantes[0].segundoApellido
+}
+
+function stringI2() {
+    segundoIntegrante=integrantes[1].nombre2+" "+integrantes[1].segundoNombre2+" "+integrantes[1].apellido2+" "+integrantes[1].segundoApellido2
+}
+
+function mostrarNombres() {
+    console.log
+    (`
+        -----
+        Integrante1: ${primerIntegrante}
+        Integrante2: ${segundoIntegrante}
+        -----
+    `);
+}
+
+btn1.addEventListener('click', capturarI1)
+btn2.addEventListener('click', capturarI2)
 
 
-/* const index = integrantes.find((element) => element.nombre === 'Maidana' );
-console.log(index) */
 
 
-/* const cambiocolor = document.querySelectorAll(duplicados[0])
 
-console.log(cambiocolor) */
-/* 
-console.log(Object.values(integrantes[1]))
-Object.values(integrantes[0]).find("Maidana") */
