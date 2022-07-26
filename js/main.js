@@ -48,7 +48,7 @@ h2_1.textContent = "Primer Integrante"
 contenedor.appendChild(h2_1)
 
 const lista_1 = document.createElement("dl")
-h2_1.appendChild(lista_1)
+contenedor.appendChild(lista_1)
 
 crearDT_DD_lista1("Primer Nombre",integrantes[0].nombre)
 crearDT_DD_lista1("Segundo Nombre",integrantes[0].segundonombre)
@@ -64,7 +64,7 @@ h2_2.textContent = "Segundo Integrante"
 contenedor.appendChild(h2_2)
 
 const lista_2 = document.createElement("dl")
-h2_2.appendChild(lista_2)
+contenedor.appendChild(lista_2)
 
 crearDT_DD_lista2("Primer Nombre",integrantes[1].nombre)
 crearDT_DD_lista2("Segundo Nombre",integrantes[1].segundonombre)
