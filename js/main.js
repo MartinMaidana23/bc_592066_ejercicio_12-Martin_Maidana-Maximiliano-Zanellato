@@ -6,6 +6,8 @@ console.log(titulo = document.querySelector("title").textContent)
 
 let btn1 = document.querySelector('#btn1')
 let btn2 = document.querySelector('#btn2')
+let btn3 = document.querySelector('#btn3')
+
 
 function capturarI1() {
     function Integrante1(nombre, segundoNombre, apellido, segundoApellido) {
@@ -90,7 +92,17 @@ btn2.addEventListener('click', capturarI2)
 function comparacion() {
     datos = []
     for (const {nombre: n, segundoNombre: sn, apellido: a, segundoApellido: sa} of integrantes) {
-        datos.push(n,sn,a,sa)
+        if (segundoNombre===''&&segundoApellido==='') {
+            datos.push(n,a,)
+        } else if (segundoApellido===''){
+            datos.push(n,sn,a)
+        }else if(segundoNombre==='') {
+            datos.push(n,a,sa)
+        }else {
+            datos.push(n,sn,a,sa)
+        }
+
+        console.log(datos);
     }
     listaOrdenada = datos.sort()
     duplicados = []
@@ -103,7 +115,7 @@ function comparacion() {
             } 
         }
     }
-    if (duplicados != "") {
+    if (duplicados !== "") {
         console.log(`Hubo coincidencias`)
         console.log(duplicados)
     } else {
