@@ -23,6 +23,13 @@
      letter-spacing: 0.5rem;
  }
 
+ div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ }
+
  h2 {
     margin: 1.5rem;
     font-size: 2rem;
@@ -42,6 +49,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    flex-wrap: wrap;
  }
     dl::before{
        position: absolute;
