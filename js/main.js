@@ -48,7 +48,7 @@ Segundo Integrante: "${i2.join(' ')}"
 `);
 
 
-                        // COMPARACION DE NOMBRES Y APELLIDOS //
+// COMPARACION DE NOMBRES Y APELLIDOS //
 
 let duplicados=[]
 
@@ -60,7 +60,7 @@ for (let i = 0; i < i1.length; i++ ){
     }
 }
 
-                        // COINCIDENCIAS //
+// COINCIDENCIAS //
 
 if (duplicados != "") {
     console.log(`Hubo coincidencias: "${duplicados.join(', ')}"`)
