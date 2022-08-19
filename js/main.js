@@ -1,116 +1,69 @@
-                                    /* PARTE 1 */
+                                    
 console.log('Bootcamp 592066 - Martin Maidana - Maximiliano Zanellato')
 console.log(titulo = document.querySelector("title").textContent)
 
-                                    /* PARTE 2 */
-
-const contenedor = document.querySelector("div")
-
-const integrantes = [
-    {nombre: "Martin", segundonombre: "", apellido: "Maidana", segundoapellido:"" },
-    {nombre: "Maximiliano", segundonombre: "", apellido: "Zanellato", segundoapellido: ""}
-    ]
-
-                                    /* Integrante 1 */
                                     
-function crearDT_DD_lista1(dato1,dato2) {
-    const dt = document.createElement("dt")
-    dt.textContent = dato1
-    lista_1.appendChild(dt)
-    const dd = document.createElement("dd")    
-    dd.className = dato2
-    dd.textContent = dato2
-    dt.appendChild(dd)
+
+let int1 = document.querySelectorAll('.int1')
+let int2 = document.querySelectorAll('.int2')
+
+int1.forEach(e=>{
+    if (e.textContent!='') {
+        e.className=e.textContent.toLowerCase()
+    }
+})
+int2.forEach(e=>{
+    if (e.textContent!='') {
+        e.className=e.textContent.toLowerCase()
+    }
+})
+
+let integranteA = Array.from(int1)
+let integranteB = Array.from(int2)
+
+primerIntegrante=[]
+segundoIntegrante=[]
+
+for(let i = 0; i< integranteA.length; i++){
+    primerIntegrante.push(integranteA[i].textContent)
+}
+for(let i = 0; i< integranteB.length; i++){
+    segundoIntegrante.push(integranteB[i].textContent)
 }
 
-function crearDT_DD_lista2(dato1,dato2) {
-    const dt = document.createElement("dt")
-    dt.textContent = dato1
-    lista_2.appendChild(dt)
-    const dd = document.createElement("dd")
-    dd.className = dato2
-    dd.textContent = dato2
-    dt.appendChild(dd)
-}
+integrante1 = [primerIntegrante[0], primerIntegrante[1],primerIntegrante[2].toUpperCase(), primerIntegrante[3].toUpperCase()]
+integrante2 = [segundoIntegrante[0], segundoIntegrante[1],segundoIntegrante[2].toUpperCase(), segundoIntegrante[3].toUpperCase()]
 
-
-const h2_1 = document.createElement("h2")
-h2_1.className = "integrante1"
-
-h2_1.textContent = "Primer Integrante"
-contenedor.appendChild(h2_1)
-
-const lista_1 = document.createElement("dl")
-contenedor.appendChild(lista_1)
-
-crearDT_DD_lista1("Primer Nombre",integrantes[0].nombre)
-crearDT_DD_lista1("Segundo Nombre",integrantes[0].segundonombre)
-crearDT_DD_lista1("Primer Apellido",integrantes[0].apellido)
-crearDT_DD_lista1("Segundo Apellido",integrantes[0].segundoapellido)
-
-
-
-const h2_2 = document.createElement("h2")
-h2_2.className = "integrante2"
-
-h2_2.textContent = "Segundo Integrante"
-contenedor.appendChild(h2_2)
-
-const lista_2 = document.createElement("dl")
-contenedor.appendChild(lista_2)
-
-crearDT_DD_lista2("Primer Nombre",integrantes[1].nombre)
-crearDT_DD_lista2("Segundo Nombre",integrantes[1].segundonombre)
-crearDT_DD_lista2("Primer Apellido",integrantes[1].apellido)
-crearDT_DD_lista2("Segundo Apellido",integrantes[1].segundoapellido)
-
-
-                                    /* Parte 3 */
-                   
-                                    
-let primerintegrante = integrantes[0].nombre+" "+integrantes[0].segundonombre+" "+integrantes[0].apellido+" "+integrantes[0].segundoapellido
-let segundointegrante = integrantes[1].nombre+" "+integrantes[1].segundonombre+" "+integrantes[1].apellido+" "+integrantes[1].segundoapellido
-
-console.log(`Integrante 1: ${primerintegrante}\nIntegrante 2: ${segundointegrante}`)
+i1= integrante1.filter(i=>i.length>0)
+i2= integrante2.filter(i=>i.length>0)
 
 
 
 
+console.log(`
+--------
+Primer Integrante: "${i1.join(' ')}"
+Segundo Integrante: "${i2.join(' ')}"
+--------
+`);
 
-
-const [array1,array2] = integrantes
-
-//console.log(array1)
-
-let {nombre1,nombre2,apellido1,apellido2} = {array1}
-
-//console.log(nombre1)
 
                         // COMPARACION DE NOMBRES Y APELLIDOS //
 
-let datos = []
-for (const {nombre: n, segundonombre: sn, apellido: a, segundoapellido: sa} of integrantes) {
-    datos.push(n,sn,a,sa)
-}
+let duplicados=[]
 
-const listaOrdenada = datos.sort()
-let duplicados = []
-//console.log(datos.sort())
-  
-for (let i = 0; i < listaOrdenada.length; i++) {
-    if (listaOrdenada[i + 1] === listaOrdenada[i]) {
-        if (listaOrdenada[i] != "") {
-        duplicados.push(listaOrdenada[i])
-        } 
+for (let i = 0; i < i1.length; i++ ){
+    for(let x = 0; x<i1.length; x++){
+        if (i1[i]==i2[x]) {
+            duplicados.push(i1[i])
+        }
     }
 }
 
                         // COINCIDENCIAS //
 
 if (duplicados != "") {
-    console.log(`Hubo coincidencias`)
-    console.log(duplicados)
-    //colorElegido = "red"
+    console.log(`Hubo coincidencias: "${duplicados.join(', ')}"`)
     colorElegido = prompt("Ingrese un color para destacar los nombre: ") 
 } else {
     console.log(`No hubo coincidencias`)
@@ -120,9 +73,8 @@ if (duplicados != "") {
                         // CAMBIO DE COLOR A LOS DUPLICADOS //
 
 for (i = 0; i<duplicados.length;i++) {
-    const tomarElementos = document.getElementsByClassName(`${duplicados[i]}`);
+    const tomarElementos = document.getElementsByClassName(`${duplicados[i].toLowerCase()}`);
     for (x = 0; x<tomarElementos.length;x++) {
         tomarElementos[x].style.color = `${colorElegido}`
     }
-    console.log(tomarElementos)
 }
