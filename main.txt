@@ -1,4 +1,4 @@
-                                    /* PARTE 1 */
+                                   /* PARTE 1 */
 console.log('Bootcamp 592066 - Martin Maidana - Maximiliano Zanellato')
 console.log(titulo = document.querySelector("title").textContent)
                                     
@@ -6,6 +6,7 @@ console.log(titulo = document.querySelector("title").textContent)
                                     
 let btn1 = document.querySelector('#btn1')
 let btn2 = document.querySelector('#btn2')
+
 
                                     
                                     
@@ -65,6 +66,7 @@ function strings() {
     Integrante 2: "${segundoIntegrante}"
     ---
     `)
+
 
 
 
@@ -129,6 +131,16 @@ function mostrarNombres() {
     (`
         -----
         Integrante1: ${primerIntegrante}
+<<<<<<< HEAD
+=======
+        -----
+    `);
+}
+function mostrarNombres2() {
+    (`
+        -----
+        Integrante2: ${segundoIntegrante}
+>>>>>>> 0a44dc521d9efe19683e29c17eef4ac6b7bb0b0c
         -----
     `);
 }
@@ -143,12 +155,14 @@ function mostrarNombres2() {
 }
 
 
+
 btn1.addEventListener('click', capturarI1)
 btn2.addEventListener('click', capturarI2)
 
 
 
 function comparacion() {
+
 
 /* let datos = []
 let integrantes = [] */
@@ -201,6 +215,14 @@ if (duplicados != '') {
 console.log(integrantes1);
 
 
+    /* let datos = []
+    let integrantes = [] */
+
+    
+    if (integrantes1.length > 1) {
+        integrantes1.pop()
+    }
+
     let datos = []
     let integrantes = []
 
@@ -208,6 +230,7 @@ console.log(integrantes1);
     if (integrantes1.length > 1) {
         integrantes1.pop()
     }
+
     if (integrantes2.length > 1) {
         integrantes2.pop()
     }
@@ -251,5 +274,7 @@ console.log(integrantes1);
         console.log(`No hubo coincidencias`)
     }
 
+
 }
+
 }
